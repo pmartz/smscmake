@@ -7,6 +7,7 @@ rem
 rem Options:
 rem  /3             OpenGL3 project and deps (JAG, etc).
 rem  /c <cache>     Preload cache with this CMake script. Default: cmake_cache.txt
+rem                   Must be located in SMSCMAKE_DIR (set as env var).
 rem  /f             Fast mode. Just issue the CMake command.
 rem  /i <instdir>   Project installation dir.
 rem  /n             Use nmake generator. Default: VS2012/64
@@ -16,7 +17,7 @@ rem
 
 set _pathToCMake=C:\Program Files (x86)\CMake 2.8\bin\cmake.exe
 
-set _preloadCache="C:/Projects/bin/sms-cache.txt"
+set _preloadCache=sms-cache.txt
 set _generator="Visual Studio 11 Win64"
 set _shared=ON
 
@@ -72,7 +73,7 @@ rem end of optloop
 
 
 
-set _cmdline=%_cmdline% -C%_preloadCache%
+set _cmdline=%_cmdline% -C"%SMSCMAKE_DIR%\%_preloadCache%"
 
 set _cmdline=%_cmdline% -G%_generator%
 set _cmdline=%_cmdline% -DBUILD_SHARED_LIBS:BOOL=%_shared%

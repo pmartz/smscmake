@@ -7,10 +7,10 @@ find_file( _localCache
     PATHS
         "C:/Program Files/CMakeSMS"
         C:/Projects/bin
-        ENV CMAKESMS_DIR
+        ENV SMSCMAKE_DIR
 )
 if( NOT _localCache )
-    message( WARNING "Can't find file sms-cache-local.txt. Please set the environment variable CMAKESMS_DIR" )
+    message( WARNING "Can't find file sms-cache-local.txt. Please set the environment variable SMSCMAKE_DIR." )
 endif()
 
 include( ${_localCache} )
