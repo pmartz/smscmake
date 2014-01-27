@@ -1,0 +1,199 @@
+#
+# Find local cache and CMake variable settings
+#
+
+find_file( _localCache
+    NAMES sms-cache-local.txt
+    PATHS
+        "C:/Program Files/CMakeSMS"
+        C:/Projects/bin
+        ENV CMAKESMS_DIR
+)
+if( NOT _localCache )
+    message( WARNING "Can't find file sms-cache-local.txt. Please set the environment variable CMAKESMS_DIR" )
+endif()
+
+include( ${_localCache} )
+
+
+
+#
+# Dependencies
+#
+
+# To be done:
+#  Bullet
+#  CrunchStore
+#  Doxygen
+#  GDAL
+#  OpenGL
+#  LatticeFX
+#  osgBullet
+#  osgEphemeris
+#  osgWorks
+#  PropertyStore
+#  Qt4
+#  StoryTeller
+#  SwitchWire
+#  VRPN
+#  VR-Juggler
+#  VTK
+
+# BackdropFX
+if( _local_BackdropFX )
+    set( backdropFX_DIR "${_local_BackdropFX}/lib" CACHE PATH "" )
+endif()
+
+# Boost
+#  C:/Projects/deps/boost_1_53_0
+if( _local_Boost )
+    set( BOOST_ROOT "${_local_Boost}" CACHE PATH "" )
+    set( Boost_INCLUDE_DIR "${_local_Boost}" CACHE PATH "" )
+endif()
+
+# DirectX
+if( _local_DirectX )
+    set( DIRECTINPUT_ROOT_DIR "${_local_DirectX}" CACHE PATH "" )
+    set( DIRECTINPUT_ARCH_x64 ON CACHE BOOL "" )
+endif()
+
+# FMOD
+if( _local_FMOD )
+    set( FMOD_INCLUDE_DIR "${_local_FMOD}/inc" CACHE PATH "" )
+    set( FMOD_LIBRARY "${_local_FMOD}/lib/fmodex64_vc.lib" CACHE FILEPATH "" )
+endif()
+
+# Freeglut
+if( _local_Freeglut )
+    set( Freeglut_ROOT_PATH "${_local_Freeglut}" CACHE PATH "" )
+    set( FREEGLUT_STATIC ON CACHE BOOL "" )
+endif()
+
+# GGT
+if( _local_GGT )
+    set( GMTL_ROOT_DIR "${_local_GGT}" CACHE PATH "" )
+    set( GGT_DIR "${_local_GGT}/include" CACHE PATH "" )
+endif()
+
+# GL3
+if( USE_GL3 AND _local_GL3 )
+    set( GL3_ROOT "${_local_GL3}" CACHE PATH "" )
+endif()
+
+# Jag3d
+if( USE_GL3 AND _local_JAG )
+    set( jag3d_DIR "${_local_JAG}/lib" CACHE PATH "" )
+endif()
+
+# OSG
+if( _local_OSG OR _local_OSGGL3 )
+    set( OSGInstallType "Alternate Install Location" CACHE STRING "" )
+    if( USE_GL3 )
+        if(_local_OSGGL3 )
+            set( OSGInstallLocation "${_local_OSGGL3}" CACHE PATH "" )
+        endif()
+    else()
+        if( _local_OSG )
+            set( OSGInstallLocation "${_local_OSG}" CACHE PATH "" )
+        endif()
+    endif()
+endif()
+
+# Poco
+if( _local_Poco )
+    set( Poco_ROOT "${_local_Poco}" CACHE PATH "" )
+endif()
+
+# Python
+if( _local_Python )
+    set( PYTHON_EXECUTABLE "${_local_Python}/python.exe" CACHE FILEPATH "" )
+endif()
+
+
+
+#
+# Project-specific flags
+#
+
+# If building Bullet, set these CMake control variables
+if( _buildBullet )
+    set( BUILD_CPU_DEMOS OFF CACHE BOOL "" )
+    set( BUILD_DEMOS OFF CACHE BOOL "" )
+    set( BUILD_MINICL_OPENCL_DEMOS OFF CACHE BOOL "" )
+    set( INCLUDE_INSTALL_DIR="C:/Program Files/BULLET_PHYSICS/include/bullet" CACHE PATH "" )
+    set( INSTALL_EXTRA_LIBS ON CACHE BOOL "" )
+    set( INSTALL_LIBS ON CACHE BOOL "" )
+    set( USE_DOUBLE_PRECISION ON CACHE BOOL "" )
+    set( USE_MSVC_RUNTIME_LIBRARY_DLL ON CACHE BOOL "" )
+endif()
+
+# If building Freeglut, set these CMake control variables
+if( _buildFreeglut )
+    set( FREEGLUT_BUILD_SHARED_LIBS OFF CACHE BOOL "" )
+    set( FREEGLUT_BUILD_STATIC_LIBS ON CACHE BOOL "" )
+    set( FREEGLUT_GLES1 OFF CACHE BOOL "" )
+    set( FREEGLUT_GLES2 OFF CACHE BOOL "" )
+    set( FREEGLUT_PRINT_ERRORS ON CACHE BOOL "" )
+    set( FREEGLUT_PRINT_WARNINGS ON CACHE BOOL "" )
+endif()
+
+# If building Jag3d, set these CMake control variables
+if( _buildJag3d )
+    if( NOT USE_GL3 )
+        message( WARNING "_buildJag3d is TRUE but USE_GL3 is false." )
+    endif()
+    set( JAG3D_BUILD_APPS ON CACHE BOOL "" )
+    set( JAG3D_BUILD_EXAMPLES ON CACHE BOOL "" )
+    set( JAG3D_BUILD_PLUGINS ON CACHE BOOL "" )
+    set( JAG3D_BUILD_TESTS ON CACHE BOOL "" )
+    set( JAG3D_BUILD_UNITTESTS ON CACHE BOOL "" )
+    set( JAG3D_DOCUMENTATION ON CACHE BOOL "" )
+    set( JAG3D_ENABLE_ERROR_CHECKS ON CACHE BOOL "" )
+    set( JAG3D_ENABLE_LOGGING ON CACHE BOOL "" )
+    set( JAG3D_ENABLE_PROFILING OFF CACHE BOOL "" )
+    set( JAG3D_USE_GL3W ON CACHE BOOL "" )
+    set( JAG3D_USE_GL3W_AUTOGENERATE ON CACHE BOOL "" )
+    set( JAG3D_USE_FREEGLUT ON CACHE BOOL "" )
+    set( JAG3D_USE_QT ON CACHE BOOL "" )
+    set( JAG3D_USE_VRJ ON CACHE BOOL "" )
+    set( JAG3D_WIN32_USE_MP ON CACHE BOOL "" )
+endif()
+
+# If building LatticeFX, set these CMake control variables
+if( _buildLatticeFX )
+    set( LFX_BUILD_APPS ON CACHE BOOL "" )
+    set( LFX_BUILD_EXAMPLES ON CACHE BOOL "" )
+    set( LFX_BUILD_TESTS ON CACHE BOOL "" )
+    set( LFX_DISABLE_LOGGING OFF CACHE BOOL "" )
+    set( LFX_INSTALL_DATA OFF CACHE BOOL "" )
+endif()
+
+# If building OSG, set these CMake control variables
+if( _buildOSG )
+    set( OSG_USE_FLOAT_BOUNDINGBOX OFF CACHE BOOL "" )
+    set( OSG_USE_FLOAT_BOUNDINGSPHERE OFF CACHE BOOL "" )
+    set( OSG_USE_REF_PTR_IMPLICIT_OUTPUT_CONVERSION OFF CACHE BOOL "" )
+    set( WIN32_USE_MP ON CACHE BOOL "" )
+    set( OSG_USE_QT OFF CACHE BOOL "" )
+    if( USE_GL3 )
+        set( OSG_GL1_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL2_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL3_AVAILABLE ON CACHE BOOL "" )
+        set( OSG_GLES1_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GLES2_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL_DISPLAYLISTS_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL_FIXED_FUNCTION_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL_LIBRARY_STATIC OFF CACHE BOOL "" )
+        set( OSG_GL_MATRICES_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL_VERTEX_ARRAY_FUNCS_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_GL_VERTEX_FUNCS_AVAILABLE OFF CACHE BOOL "" )
+    endif()
+endif()
+
+# If building osgWorks, set these CMake control variables
+if( _buildOsgWorks )
+    set( OSGWORKS_BUILD_EXAMPLES ON CACHE BOOL "" )
+    set( OSGWORKS_BUILD_TESTS ON CACHE BOOL "" )
+    set( OSGWORKS_INSTALL_DATA OFF CACHE BOOL "" )
+    set( OSGWORKS_SCENEVIEW_ANAGLYPHIC_STEREO_SUPPORT ON CACHE BOOL "" )
+endif()

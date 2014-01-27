@@ -1,0 +1,72 @@
+# Set to true for any project for which this script will
+# be used to populate the CMakeCache.txt.
+set( _buildBullet TRUE )
+set( _buildFreeglut TRUE )
+set( _buildJag3d TRUE )
+set( _buildLatticeFX TRUE )
+set( _buildOSG TRUE )
+set( _buildOsgWorks TRUE )
+
+# Set to the desired build configurations.
+#   Possible values: Debug;Release;MinSizeRel;RelWithDebInfo
+set( CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" )
+
+
+#
+# Dependency install locations
+#
+
+set( _local_BackdropFX "C:/Projects/ISU/vesuite/deps/inst" )
+
+set( _local_Boost "C:/Projects/deps-vs2012/boost_1_53_0" )
+
+set( _local_Bullet )
+
+set( _local_CruchStore )
+
+set( _local_DirectX "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)" )
+
+set( _local_Doxygen )
+
+set( _local_FMOD "C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API Win64/api" )
+
+set( _local_Freeglut "C:/Projects/deps-vs2012/freeglut" )
+
+set( _local_GDAL )
+
+set( _local_GGT "C:/Projects/JAG/deps/ggt" )
+
+set( _local_GL )
+
+set( _local_GL3 "C:/Projects/JAG/deps" )
+
+set( _local_JAG "C:/Program Files/Jag3D" )
+
+set( _local_LatticeFX )
+
+set( _local_OSG "C:/Program Files/OpenSceneGraph" )
+set( _local_OSGGL3 "C:/Projects/deps-vs2012/osg-gl3" )
+
+set( _local_osgBullet )
+
+set( _local_osgEphemeris )
+
+set( _local_osgWorks )
+
+set( _local_Poco "C:/Projects/deps-vs2012/poco" )
+
+set( _local_PropertyStore )
+
+set( _local_Python "C:/Python27" )
+
+set( _local_Qt4 )
+
+set( _local_StoryTeller )
+
+set( _local_SwitchWire )
+
+set( _local_VRPN )
+
+set( _local_VRJuggler )
+
+set( _local_VTK )
