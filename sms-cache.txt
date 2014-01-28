@@ -7,6 +7,7 @@ find_file( _localCache
     PATHS
         "C:/Program Files/CMakeSMS"
         C:/Projects/bin
+        .
         ENV SMSCMAKE_DIR
 )
 if( NOT _localCache )
@@ -30,7 +31,6 @@ include( ${_localCache} )
 #  LatticeFX
 #  osgBullet
 #  osgEphemeris
-#  osgWorks
 #  PropertyStore
 #  Qt4
 #  StoryTeller
@@ -99,9 +99,13 @@ if( _local_OSG OR _local_OSGGL3 )
     endif()
 endif()
 
+if( _local_osgWorks )
+    set( osgWorks_DIR "${_local_osgWorks}/lib" CACHE PATH "" )
+endif()
+
 # Poco
 if( _local_Poco )
-    set( Poco_ROOT "${_local_Poco}" CACHE PATH "" )
+    set( POCO_ROOT "${_local_Poco}" CACHE PATH "" )
 endif()
 
 # Python

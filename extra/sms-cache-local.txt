@@ -51,7 +51,7 @@ set( _local_osgBullet )
 
 set( _local_osgEphemeris )
 
-set( _local_osgWorks )
+set( _local_osgWorks "C:/Program Files/osgWorks" )
 
 set( _local_Poco "C:/Projects/deps-vs2012/poco" )
 
