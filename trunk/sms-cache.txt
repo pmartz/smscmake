@@ -124,7 +124,7 @@ if( _buildBullet )
     set( BUILD_CPU_DEMOS OFF CACHE BOOL "" )
     set( BUILD_DEMOS OFF CACHE BOOL "" )
     set( BUILD_MINICL_OPENCL_DEMOS OFF CACHE BOOL "" )
-    set( INCLUDE_INSTALL_DIR="C:/Program Files/BULLET_PHYSICS/include/bullet" CACHE PATH "" )
+    set( INCLUDE_INSTALL_DIR "C:/Program Files/BULLET_PHYSICS/include/bullet" CACHE PATH "" )
     set( INSTALL_EXTRA_LIBS ON CACHE BOOL "" )
     set( INSTALL_LIBS ON CACHE BOOL "" )
     set( USE_DOUBLE_PRECISION ON CACHE BOOL "" )
@@ -139,6 +139,11 @@ if( _buildFreeglut )
     set( FREEGLUT_GLES2 OFF CACHE BOOL "" )
     set( FREEGLUT_PRINT_ERRORS ON CACHE BOOL "" )
     set( FREEGLUT_PRINT_WARNINGS ON CACHE BOOL "" )
+endif()
+
+# If building CppDOM, set these CMake control variables
+if( _buildCppDOM )
+    set( BUILD_TESTING OFF CACHE BOOL "" )
 endif()
 
 # If building Jag3d, set these CMake control variables
