@@ -19,6 +19,7 @@ set( CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" )
 set( _local_BackdropFX "C:/Projects/ISU/vesuite/deps/inst" )
 
 set( _local_Boost "C:/Projects/deps-vs2012/boost_1_53_0" )
+set( _local_Boost_Include "C:/Projects/deps-vs2012/boost_1_53_0" )
 
 set( _local_Bullet )
 

@@ -2,7 +2,7 @@
 
 
 rem  **  Usage
-rem  cmb [Options]
+rem  smscmake [Options]
 rem
 rem Options:
 rem  /3             OpenGL3 project and deps (JAG, etc).
@@ -13,6 +13,12 @@ rem  /i <instdir>   Project installation dir.
 rem  /n             Use nmake generator. Default: VS2012/64
 rem  /s             Create static libs. Default: shared
 rem
+
+
+if %SMSCMAKE_DIR%=="" (
+    echo Error: Must set SMSCMAKE_DIR in environment to point at smscmake installation
+    echo    directory containing sms-cache.txt and sms-cache-local.txt.
+)
 
 
 set _pathToCMake=C:\Program Files (x86)\CMake 2.8\bin\cmake.exe

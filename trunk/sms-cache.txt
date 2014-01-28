@@ -48,7 +48,7 @@ endif()
 #  C:/Projects/deps/boost_1_53_0
 if( _local_Boost )
     set( BOOST_ROOT "${_local_Boost}" CACHE PATH "" )
-    set( Boost_INCLUDE_DIR "${_local_Boost}" CACHE PATH "" )
+    set( Boost_INCLUDE_DIR "${_local_Boost_Include}" CACHE PATH "" )
 endif()
 
 # DirectX
