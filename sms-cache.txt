@@ -99,8 +99,20 @@ if( _local_OSG OR _local_OSGGL3 )
     endif()
 endif()
 
+# osgEphemeris
+if( _local_osgEphemeris )
+    set( OSGEPHEMERIS_ROOT "${_local_osgEphemeris}" CACHE PATH "" )
+endif()
+
+# osgWorks
 if( _local_osgWorks )
     set( osgWorks_DIR "${_local_osgWorks}/lib" CACHE PATH "" )
+endif()
+
+# PNG
+if( _local_png )
+    set( PNG_PNG_INCLUDE_DIR "${_local_png}/include" CACHE PATH "" )
+    set( PNG_LIBRARY "${_local_png}/lib/libpng13.lib" CACHE PATH "" )
 endif()
 
 # Poco
@@ -113,11 +125,19 @@ if( _local_Python )
     set( PYTHON_EXECUTABLE "${_local_Python}/python.exe" CACHE FILEPATH "" )
 endif()
 
-
+# Zlib
+if( _local_zlib )
+    set( ZLIB_ROOT "${_local_zlib}" CACHE PATH "" )
+endif()
 
 #
 # Project-specific flags
 #
+
+# If building BackdropFX, set these CMake control variables
+if( _buildBackdropFX )
+    set( BDFX_INSTALL_DATA OFF CACHE BOOL "" )
+endif()
 
 # If building Bullet, set these CMake control variables
 if( _buildBullet )

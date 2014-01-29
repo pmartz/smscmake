@@ -1,5 +1,6 @@
 # Set to true for any project for which this script will
 # be used to populate the CMakeCache.txt.
+set( _buildBackdropFX TRUE )
 set( _buildBullet TRUE )
 set( _buildFreeglut TRUE )
 set( _buildJag3d TRUE )
@@ -54,6 +55,8 @@ set( _local_osgEphemeris )
 
 set( _local_osgWorks "C:/Program Files/osgWorks" )
 
+set( _local_png "C:/Projects/OSG/3rdParty" )
+
 set( _local_Poco "C:/Projects/deps-vs2012/poco" )
 
 set( _local_PropertyStore )
@@ -71,3 +74,5 @@ set( _local_VRPN )
 set( _local_VRJuggler )
 
 set( _local_VTK )
+
+set( _local_zlib "C:/Projects/OSG/3rdParty" )
