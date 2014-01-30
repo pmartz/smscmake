@@ -17,6 +17,8 @@ endif()
 include( ${_localCache} )
 
 
+set( CMAKE_DEBUG_POSTFIX "d" CACHE STRING "" )
+
 
 #
 # Dependencies
@@ -34,7 +36,6 @@ include( ${_localCache} )
 #  PropertyStore
 #  Qt4
 #  StoryTeller
-#  SwitchWire
 #  VRPN
 #  VR-Juggler
 #  VTK
@@ -49,6 +50,11 @@ endif()
 if( _local_Boost )
     set( BOOST_ROOT "${_local_Boost}" CACHE PATH "" )
     set( Boost_INCLUDE_DIR "${_local_Boost_Include}" CACHE PATH "" )
+endif()
+
+# CrunchStore
+if( _local_CrunchStore )
+    set( crunchstore_DIR "${_local_CrunchStore}/lib" CACHE PATH "" )
 endif()
 
 # DirectX
@@ -125,6 +131,11 @@ if( _local_Python )
     set( PYTHON_EXECUTABLE "${_local_Python}/python.exe" CACHE FILEPATH "" )
 endif()
 
+# SwitchWire
+if( _local_SwitchWire )
+    set( switchwire_DIR "${_local_SwitchWire}/lib" CACHE PATH "" )
+endif()
+
 # Zlib
 if( _local_zlib )
     set( ZLIB_ROOT "${_local_zlib}" CACHE PATH "" )
@@ -164,6 +175,11 @@ endif()
 # If building CppDOM, set these CMake control variables
 if( _buildCppDOM )
     set( BUILD_TESTING OFF CACHE BOOL "" )
+endif()
+
+# If building CrunchStore, set these CMake control variables
+if( _buildCrunchStore )
+    set( BUILD_EXAMPLES OFF CACHE BOOL "" )
 endif()
 
 # If building Jag3d, set these CMake control variables

@@ -2,13 +2,15 @@
 
 
 rem  **  Usage
-rem  smscmake [Options]
+rem  smscmake [Options] [pathToProject]
+rem
+rem If pathToProject is omitted, .. is assumed.
 rem
 rem Options:
 rem  /3             OpenGL3 project and deps (JAG, etc).
 rem  /c <cache>     Preload cache with this CMake script. Default: cmake_cache.txt
 rem                   Must be located in SMSCMAKE_DIR (set as env var).
-rem  /f             Fast mode. Just issue the CMake command.
+rem  /f             Fast mode. If present, all other options are ignored.
 rem  /i <instdir>   Project installation dir.
 rem  /n             Use nmake generator. Default: VS2012/64
 rem  /s             Create static libs. Default: shared
@@ -18,6 +20,7 @@ rem
 if %SMSCMAKE_DIR%=="" (
     echo Error: Must set SMSCMAKE_DIR in environment to point at smscmake installation
     echo    directory containing sms-cache.txt and sms-cache-local.txt.
+    goto :end
 )
 
 
@@ -26,11 +29,17 @@ set _pathToCMake=C:\Program Files (x86)\CMake 2.8\bin\cmake.exe
 set _preloadCache=sms-cache.txt
 set _generator="Visual Studio 11 Win64"
 set _shared=ON
+set _pathToProject=..
 
 
-set _cmdline="%_pathToCMake%" .. --no-warn-unused-cli -Wno-dev
+set _cmdline="%_pathToCMake%" --no-warn-unused-cli -Wno-dev
+
 rem  **  Check for fast build.
-if "%1"=="/f" goto :issuecmd
+if "%1"=="/f" (
+    shift
+    call :checkerrors
+    goto :issuecmd
+)
 
 
 
@@ -77,6 +86,7 @@ rem
   )
 rem end of optloop
 
+call :checkerrors
 
 
 set _cmdline=%_cmdline% -C"%SMSCMAKE_DIR%\%_preloadCache%"
@@ -88,5 +98,28 @@ set _cmdline=%_cmdline% -DBUILD_SHARED_LIBS:BOOL=%_shared%
 
 :issuecmd
 
+set _cmdline=%_cmdline% %_pathToProject%
+
 @echo on
 %_cmdline%
+@echo off
+goto :end
+
+
+
+:checkerrors
+if NOT "%1"=="" (
+    set _pathToProject=%1
+    shift
+)
+
+if NOT "%1"=="" (
+    echo Error: Unknown command line options.
+    echo %1
+    goto :end
+)
+goto:eof
+
+
+
+:end

@@ -2,6 +2,8 @@
 # be used to populate the CMakeCache.txt.
 set( _buildBackdropFX TRUE )
 set( _buildBullet TRUE )
+set( _buildCppDOM TRUE )
+set( _buildCrunchStore TRUE )
 set( _buildFreeglut TRUE )
 set( _buildJag3d TRUE )
 set( _buildLatticeFX TRUE )
@@ -24,7 +26,7 @@ set( _local_Boost_Include "C:/Projects/deps-vs2012/boost_1_53_0" )
 
 set( _local_Bullet )
 
-set( _local_CruchStore )
+set( _local_CrunchStore )
 
 set( _local_DirectX "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)" )
 
