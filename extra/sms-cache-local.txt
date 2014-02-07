@@ -50,6 +50,7 @@ set( _local_LatticeFX )
 
 set( _local_OSG "C:/Program Files/OpenSceneGraph" )
 set( _local_OSGGL3 "C:/Projects/deps-vs2012/osg-gl3" )
+set( _local_OSG_3rdParty )
 
 set( _local_osgBullet )
 
