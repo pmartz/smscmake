@@ -17,7 +17,9 @@ endif()
 include( ${_localCache} )
 
 
-set( CMAKE_DEBUG_POSTFIX "d" CACHE STRING "" )
+if( SET_DEBUG_POSTFIX )
+    set( CMAKE_DEBUG_POSTFIX "d" CACHE STRING "" )
+endif()
 
 
 #
@@ -25,20 +27,12 @@ set( CMAKE_DEBUG_POSTFIX "d" CACHE STRING "" )
 #
 
 # To be done:
-#  Bullet
-#  CrunchStore
 #  Doxygen
 #  GDAL
 #  OpenGL
-#  LatticeFX
-#  osgBullet
-#  osgEphemeris
-#  PropertyStore
 #  Qt4
-#  StoryTeller
 #  VRPN
 #  VR-Juggler
-#  VTK
 
 # BackdropFX
 if( _local_BackdropFX )
@@ -50,6 +44,12 @@ endif()
 if( _local_Boost )
     set( BOOST_ROOT "${_local_Boost}" CACHE PATH "" )
     set( Boost_INCLUDE_DIR "${_local_Boost_Include}" CACHE PATH "" )
+    set( BOOST_ALL_DYN_LINK ON CACHE BOOL "" )
+endif()
+
+# Bullet
+if( _local_Bullet )
+    set( BULLET_ROOT "${_local_Bullet}" CACHE PATH "" )
 endif()
 
 # CrunchStore
@@ -91,6 +91,11 @@ if( USE_GL3 AND _local_JAG )
     set( jag3d_DIR "${_local_JAG}/lib" CACHE PATH "" )
 endif()
 
+# LatticeFX
+if( _local_LatticeFX )
+    set( latticefx_DIR "${_local_LatticeFX}/lib" CACHE PATH "" )
+endif()
+
 # OSG
 if( _local_OSG OR _local_OSGGL3 )
     if( _local_OSG_3rdParty )
@@ -106,6 +111,11 @@ if( _local_OSG OR _local_OSGGL3 )
             set( OSGInstallLocation "${_local_OSG}" CACHE PATH "" )
         endif()
     endif()
+endif()
+
+# osgBullet
+if( _local_osgBullet )
+    set( osgBullet_DIR "${_local_osgBullet}/lib" CACHE PATH "" )
 endif()
 
 # osgEphemeris
@@ -126,7 +136,13 @@ endif()
 
 # Poco
 if( _local_Poco )
+    set( Poco_ROOT "${_local_Poco}" CACHE PATH "" )
     set( POCO_ROOT "${_local_Poco}" CACHE PATH "" )
+endif()
+
+# PropertyStore
+if( _local_PropertyStore )
+    set( propertystore_DIR "${_local_PropertyStore}/lib" CACHE PATH "" )
 endif()
 
 # Python
@@ -134,9 +150,19 @@ if( _local_Python )
     set( PYTHON_EXECUTABLE "${_local_Python}/python.exe" CACHE FILEPATH "" )
 endif()
 
+# StoryTeller
+if( _local_StoryTeller )
+    set( storyteller_DIR "${_local_StoryTeller}/lib" CACHE PATH "" )
+endif()
+
 # SwitchWire
 if( _local_SwitchWire )
     set( switchwire_DIR "${_local_SwitchWire}/lib" CACHE PATH "" )
+endif()
+
+# VTK
+if( _local_VTK )
+    set( VTK_DIR "${_local_VTK}/lib/vtk-${_local_VTK_ver}" CACHE PATH "" )
 endif()
 
 # Zlib
@@ -150,7 +176,7 @@ endif()
 
 # If building BackdropFX, set these CMake control variables
 if( _buildBackdropFX )
-    set( BDFX_INSTALL_DATA OFF CACHE BOOL "" )
+#    set( BDFX_INSTALL_DATA OFF CACHE BOOL "" )
 endif()
 
 # If building Bullet, set these CMake control variables
@@ -213,7 +239,7 @@ if( _buildLatticeFX )
     set( LFX_BUILD_EXAMPLES ON CACHE BOOL "" )
     set( LFX_BUILD_TESTS ON CACHE BOOL "" )
     set( LFX_DISABLE_LOGGING OFF CACHE BOOL "" )
-    set( LFX_INSTALL_DATA OFF CACHE BOOL "" )
+#    set( LFX_INSTALL_DATA OFF CACHE BOOL "" )
 endif()
 
 # If building OSG, set these CMake control variables
@@ -242,6 +268,6 @@ endif()
 if( _buildOsgWorks )
     set( OSGWORKS_BUILD_EXAMPLES ON CACHE BOOL "" )
     set( OSGWORKS_BUILD_TESTS ON CACHE BOOL "" )
-    set( OSGWORKS_INSTALL_DATA OFF CACHE BOOL "" )
+#    set( OSGWORKS_INSTALL_DATA OFF CACHE BOOL "" )
     set( OSGWORKS_SCENEVIEW_ANAGLYPHIC_STEREO_SUPPORT ON CACHE BOOL "" )
 endif()

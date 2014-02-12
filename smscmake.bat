@@ -10,6 +10,8 @@ rem Options:
 rem  /3             OpenGL3 project and deps (JAG, etc).
 rem  /c <cache>     Preload cache with this CMake script. Default: cmake_cache.txt
 rem                   Must be located in SMSCMAKE_DIR (set as env var).
+rem  /d             Explicitly set CMAKE_DEBUG_POSTFIX to 'd'. Otherwise, do
+rem                   not set CMAKE_DEBUG_POSTFIX and let it default.
 rem  /f             Fast mode. If present, all other options are ignored.
 rem  /i <instdir>   Project installation dir.
 rem  /n             Use nmake generator. Default: VS2012/64
@@ -59,6 +61,13 @@ rem
   if "%1"=="/c" (
     set _preloadCache=%2
     shift
+    shift
+    goto :optloop
+  )
+
+  rem  **  Explicit set debug postfix to 'd'.
+  if "%1"=="/d" (
+    set _cmdline=%_cmdline% -DSET_DEBUG_POSTFIX:BOOL=ON
     shift
     goto :optloop
   )
