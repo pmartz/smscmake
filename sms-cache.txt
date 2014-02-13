@@ -63,6 +63,11 @@ if( _local_DirectX )
     set( DIRECTINPUT_ARCH_x64 ON CACHE BOOL "" )
 endif()
 
+# osgEphemeris
+if( _local_osgEphemeris )
+    set( osgEphemeris_DIR "${_local_osgEphemeris}/lib" CACHE PATH "" )
+endif()
+
 # FMOD
 if( _local_FMOD )
     set( FMOD_INCLUDE_DIR "${_local_FMOD}/inc" CACHE PATH "" )
@@ -163,6 +168,11 @@ endif()
 # VTK
 if( _local_VTK )
     set( VTK_DIR "${_local_VTK}/lib/vtk-${_local_VTK_ver}" CACHE PATH "" )
+endif()
+
+# Xerces
+if( _local_Xerces )
+    set( XERCESC_ROOT_DIR "${_local_Xerces}" CACHE PATH "" )
 endif()
 
 # Zlib

@@ -24,7 +24,7 @@ set( _local_BackdropFX "C:/Projects/ISU/vesuite/deps/inst" )
 set( _local_Boost "C:/Projects/deps-vs2012/boost_1_53_0" )
 set( _local_Boost_Include "C:/Projects/deps-vs2012/boost_1_53_0" )
 
-set( _local_Bullet )
+set( _local_Bullet "C:/Projects/deps/inst/bullet280" )
 
 set( _local_CrunchStore )
 
@@ -77,5 +77,7 @@ set( _local_VRPN )
 set( _local_VRJuggler )
 
 set( _local_VTK )
+
+set( _local_Xerces )
 
 set( _local_zlib "C:/Projects/OSG/3rdParty" )
