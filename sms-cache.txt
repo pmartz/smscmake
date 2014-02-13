@@ -110,12 +110,19 @@ if( _local_OSG OR _local_OSGGL3 )
     if( USE_GL3 )
         if( _local_OSGGL3 )
             set( OSGInstallLocation "${_local_OSGGL3}" CACHE PATH "" )
+            set( OSG_DIR "${_local_OSGGL3}" CACHE PATH "" )
         endif()
     else()
         if( _local_OSG )
             set( OSGInstallLocation "${_local_OSG}" CACHE PATH "" )
+            set( OSG_DIR "${_local_OSG}" CACHE PATH "" )
         endif()
     endif()
+endif()
+
+# osgAudio
+if( _local_osgAudio )
+    set( osgAudio_DIR "${_local_osgAudio}/lib" CACHE PATH "" )
 endif()
 
 # osgBullet

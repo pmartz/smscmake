@@ -19,14 +19,14 @@ set( CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" )
 # Dependency install locations
 #
 
-set( _local_BackdropFX "C:/Projects/ISU/vesuite/deps/inst" )
+set( _local_BackdropFX "C:/Projects/deps/inst/backdropfx" )
 
-set( _local_Boost "C:/Projects/deps-vs2012/boost_1_53_0" )
-set( _local_Boost_Include "C:/Projects/deps-vs2012/boost_1_53_0" )
+set( _local_Boost "C:/Projects/deps/inst/boost" )
+set( _local_Boost_Include "C:/Projects/deps/inst/boost" )
 
-set( _local_Bullet "C:/Projects/deps/inst/bullet280" )
+set( _local_Bullet "C:/Projects/deps/inst/bullet-280" )
 
-set( _local_CrunchStore )
+set( _local_CrunchStore "C:/Projects/deps/inst/crunchstore" )
 
 set( _local_DirectX "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)" )
 
@@ -34,50 +34,53 @@ set( _local_Doxygen )
 
 set( _local_FMOD "C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API Win64/api" )
 
-set( _local_Freeglut "C:/Projects/deps-vs2012/freeglut" )
+set( _local_Freeglut "C:/Projects/deps/inst/freeglut" )
 
 set( _local_GDAL )
 
-set( _local_GGT "C:/Projects/JAG/deps/ggt" )
+set( _local_GGT "C:/Projects/deps/inst/ggt" )
 
 set( _local_GL )
 
-set( _local_GL3 "C:/Projects/JAG/deps" )
+set( _local_GL3 "C:/Projects/deps/inst" )
 
-set( _local_JAG "C:/Program Files/Jag3D" )
+set( _local_JAG "C:/Projects/deps/inst/jag3d" )
 
-set( _local_LatticeFX )
+set( _local_LatticeFX "C:/Projects/deps/inst/latticefx" )
 
-set( _local_OSG "C:/Program Files/OpenSceneGraph" )
-set( _local_OSGGL3 "C:/Projects/deps-vs2012/osg-gl3" )
-set( _local_OSG_3rdParty )
+set( _local_OSG "C:/Projects/deps/inst/osg-285" )
+set( _local_OSGGL3 "C:/Projects/deps/inst/osg-331-gl3" )
+set( _local_OSG_3rdParty "C:/Projects/deps/inst/3rdParty" )
 
-set( _local_osgBullet )
+set( _local_osgAudio "C:/Projects/deps/inst/osgaudio" )
 
-set( _local_osgEphemeris )
+set( _local_osgBullet "C:/Projects/deps/inst/osgbullet" )
 
-set( _local_osgWorks "C:/Program Files/osgWorks" )
+set( _local_osgEphemeris "C:/Projects/deps/inst/osgephemeris" )
 
-set( _local_png "C:/Projects/OSG/3rdParty" )
+set( _local_osgWorks "C:/Projects/deps/inst/osgworks" )
 
-set( _local_Poco "C:/Projects/deps-vs2012/poco" )
+set( _local_png "C:/Projects/deps/inst/3rdParty" )
 
-set( _local_PropertyStore )
+set( _local_Poco "C:/Projects/deps/inst/poco" )
+
+set( _local_PropertyStore "C:/Projects/deps/inst/propertystore" )
 
 set( _local_Python "C:/Python27" )
 
 set( _local_Qt4 )
 
-set( _local_StoryTeller )
+set( _local_StoryTeller "C:/Projects/deps/inst/storyteller" )
 
-set( _local_SwitchWire )
+set( _local_SwitchWire "C:/Projects/deps/inst/switchwire" )
 
 set( _local_VRPN )
 
 set( _local_VRJuggler )
 
-set( _local_VTK )
+set( _local_VTK "C:/Projects/deps/inst/vtk" )
+set( _local_VTK_ver "5.10" )
 
-set( _local_Xerces )
+set( _local_Xerces "C:/Projects/deps/xerces-c-3.1.1" )
 
-set( _local_zlib "C:/Projects/OSG/3rdParty" )
+set( _local_zlib "C:/Projects/deps/inst/3rdParty" )
