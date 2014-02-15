@@ -22,17 +22,13 @@ if( SET_DEBUG_POSTFIX )
 endif()
 
 
+
 #
 # Dependencies
 #
 
 # To be done:
-#  Doxygen
-#  GDAL
-#  OpenGL
-#  Qt4
 #  VRPN
-#  VR-Juggler
 
 # BackdropFX
 if( _local_BackdropFX )
@@ -55,6 +51,11 @@ endif()
 # CrunchStore
 if( _local_CrunchStore )
     set( crunchstore_DIR "${_local_CrunchStore}/lib" CACHE PATH "" )
+endif()
+
+# CURL
+if( _local_curl )
+    set( CURL_DIR "${_local_curl}" CACHE PATH "" )
 endif()
 
 # DirectX
@@ -86,6 +87,11 @@ if( _local_GGT )
     set( GGT_DIR "${_local_GGT}/include" CACHE PATH "" )
 endif()
 
+# GDAL
+if( _local_GDAL )
+    set( GDAL_DIR "${_local_GDAL}" CACHE PATH "" )
+endif()
+
 # GL3
 if( USE_GL3 AND _local_GL3 )
     set( GL3_ROOT "${_local_GL3}" CACHE PATH "" )
@@ -105,12 +111,18 @@ endif()
 if( _local_OSG OR _local_OSGGL3 )
     if( _local_OSG_3rdParty )
         set( ACTUAL_3DPARTY_DIR "${_local_OSG_3rdParty}" CACHE PATH "" )
+        set( ACTUAL_3RDPARTY_DIR "${_local_OSG_3rdParty}" CACHE PATH "" )
     endif()
     set( OSGInstallType "Alternate Install Location" CACHE STRING "" )
     if( USE_GL3 )
         if( _local_OSGGL3 )
             set( OSGInstallLocation "${_local_OSGGL3}" CACHE PATH "" )
             set( OSG_DIR "${_local_OSGGL3}" CACHE PATH "" )
+        endif()
+    elseif( USE_OSG_317 )
+        if( _local_OSG_317 )
+            set( OSGInstallLocation "${_local_OSG_317}" CACHE PATH "" )
+            set( OSG_DIR "${_local_OSG_317}" CACHE PATH "" )
         endif()
     else()
         if( _local_OSG )
@@ -263,9 +275,8 @@ endif()
 if( _buildOSG )
     set( OSG_USE_FLOAT_BOUNDINGBOX OFF CACHE BOOL "" )
     set( OSG_USE_FLOAT_BOUNDINGSPHERE OFF CACHE BOOL "" )
-    set( OSG_USE_REF_PTR_IMPLICIT_OUTPUT_CONVERSION OFF CACHE BOOL "" )
+#    set( OSG_USE_REF_PTR_IMPLICIT_OUTPUT_CONVERSION OFF CACHE BOOL "" )
     set( WIN32_USE_MP ON CACHE BOOL "" )
-    set( OSG_USE_QT OFF CACHE BOOL "" )
     if( USE_GL3 )
         set( OSG_GL1_AVAILABLE OFF CACHE BOOL "" )
         set( OSG_GL2_AVAILABLE OFF CACHE BOOL "" )
@@ -278,6 +289,9 @@ if( _buildOSG )
         set( OSG_GL_MATRICES_AVAILABLE OFF CACHE BOOL "" )
         set( OSG_GL_VERTEX_ARRAY_FUNCS_AVAILABLE OFF CACHE BOOL "" )
         set( OSG_GL_VERTEX_FUNCS_AVAILABLE OFF CACHE BOOL "" )
+        set( OSG_USE_QT OFF CACHE BOOL "" )
+    else()
+        set( OSG_USE_QT ON CACHE BOOL "" )
     endif()
 endif()
 

@@ -15,6 +15,7 @@ rem                   not set CMAKE_DEBUG_POSTFIX and let it default.
 rem  /f             Fast mode. If present, all other options are ignored.
 rem  /i <instdir>   Project installation dir.
 rem  /n             Use nmake generator. Default: VS2012/64
+rem  /osg317        Use OSG v3.1.7 as a dependency. Default is v2.8.5.
 rem  /s             Create static libs. Default: shared
 rem
 
@@ -83,6 +84,13 @@ rem
   rem  **  Use the NMake generator instead of VS2012.
   if "%1"=="/n" (
     set _generator="NMake Makefiles"
+    shift
+    goto :optloop
+  )
+
+  rem  **  Select OSG v3.1.7 build for OpenGL FFP.
+  if "%1"=="/osg317" (
+    set _cmdline=%_cmdline% -DUSE_OSG_317:BOOL=ON
     shift
     goto :optloop
   )
