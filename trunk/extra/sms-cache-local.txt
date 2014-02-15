@@ -28,6 +28,8 @@ set( _local_Bullet "C:/Projects/deps/inst/bullet-280" )
 
 set( _local_CrunchStore "C:/Projects/deps/inst/crunchstore" )
 
+set( _local_curl "C:/Projects/deps/inst/3rdParty" )
+
 set( _local_DirectX "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)" )
 
 set( _local_Doxygen )
@@ -36,7 +38,7 @@ set( _local_FMOD "C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API W
 
 set( _local_Freeglut "C:/Projects/deps/inst/freeglut" )
 
-set( _local_GDAL )
+set( _local_GDAL "C:/Projects/deps/inst/gdal" )
 
 set( _local_GGT "C:/Projects/deps/inst/ggt" )
 
@@ -49,6 +51,7 @@ set( _local_JAG "C:/Projects/deps/inst/jag3d" )
 set( _local_LatticeFX "C:/Projects/deps/inst/latticefx" )
 
 set( _local_OSG "C:/Projects/deps/inst/osg-285" )
+set( _local_OSG_317 "C:/Projects/deps/inst/osg-317" )
 set( _local_OSGGL3 "C:/Projects/deps/inst/osg-331-gl3" )
 set( _local_OSG_3rdParty "C:/Projects/deps/inst/3rdParty" )
 
