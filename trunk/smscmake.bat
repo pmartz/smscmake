@@ -1,24 +1,6 @@
 @echo off
 
 
-rem  **  Usage
-rem  smscmake [Options] [pathToProject]
-rem
-rem If pathToProject is omitted, .. is assumed.
-rem
-rem Options:
-rem  /3             OpenGL3 project and deps (JAG, etc).
-rem  /c <cache>     Preload cache with this CMake script. Default: cmake_cache.txt
-rem                   Must be located in SMSCMAKE_DIR (set as env var).
-rem  /d             Explicitly set CMAKE_DEBUG_POSTFIX to 'd'. Otherwise, do
-rem                   not set CMAKE_DEBUG_POSTFIX and let it default.
-rem  /f             Fast mode. If present, all other options are ignored.
-rem  /i <instdir>   Project installation dir.
-rem  /n             Use nmake generator. Default: VS2012/64
-rem  /osg317        Use OSG v3.1.7 as a dependency. Default is v2.8.5.
-rem  /s             Create static libs. Default: shared
-rem
-
 
 if %SMSCMAKE_DIR%=="" (
     echo Error: Must set SMSCMAKE_DIR in environment to point at smscmake installation
@@ -51,6 +33,14 @@ rem  **  Parse command line options
 rem
 
 :optloop
+  rem  **  Help text.
+  if "%1"=="/h" (
+    goto :usage
+  )
+  if "%1"=="/?" (
+    goto :usage
+  )
+
   rem  **  OpenGL3 projects and deps
   if "%1"=="/3" (
     set _cmdline=%_cmdline% -DUSE_GL3:BOOL=ON
@@ -133,10 +123,29 @@ if NOT "%1"=="" (
 if NOT "%1"=="" (
     echo Error: Unknown command line options.
     echo %1
-    goto :end
+    goto :usage
 )
 goto:eof
 
+
+:usage
+  echo Usage
+  echo   smscmake [Options] [pathToProject]
+  echo.
+  echo   If pathToProject is omitted, .. is assumed.
+  echo.
+  echo Options:
+  echo   /h or /?       Display help text and exit.
+  echo   /3             OpenGL3 project and deps (JAG, etc).
+  echo   /c cachefile   Preload cache with this CMake script. Default: cmake_cache.txt
+  echo                    Must be located in SMSCMAKE_DIR (set as env var).
+  echo   /d             Explicitly set CMAKE_DEBUG_POSTFIX to 'd'. Otherwise, do
+  echo                    not set CMAKE_DEBUG_POSTFIX and let it default.
+  echo   /f             Fast mode. If present, all other options are ignored.
+  echo   /i instdir     Project installation dir.
+  echo   /n             Use nmake generator. Default: VS2012/64
+  echo   /osg317        Use OSG v3.1.7 as a dependency. Default is v2.8.5.
+  echo   /s             Create static libs. Default: shared
 
 
 :end
