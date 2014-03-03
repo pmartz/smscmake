@@ -40,7 +40,11 @@ endif()
 if( _local_Boost )
     set( BOOST_ROOT "${_local_Boost}" CACHE PATH "" )
     set( Boost_INCLUDE_DIR "${_local_Boost_Include}" CACHE PATH "" )
-    set( BOOST_ALL_DYN_LINK ON CACHE BOOL "" )
+    if( BUILD_SHARED_LIBS )
+        set( BOOST_ALL_DYN_LINK ON CACHE BOOL "" )
+    else()
+        set( BOOST_ALL_DYN_LINK OFF CACHE BOOL "" )
+    endif()
 endif()
 
 # Bullet
@@ -160,6 +164,9 @@ endif()
 
 # Poco
 if( _local_Poco )
+    if( NOT BUILD_SHARED_LIBS )
+        set( POCO_STATIC ON CACHE BOOL "" )
+    endif()
     set( Poco_ROOT "${_local_Poco}" CACHE PATH "" )
     set( POCO_ROOT "${_local_Poco}" CACHE PATH "" )
 endif()
