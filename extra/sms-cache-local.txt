@@ -53,6 +53,7 @@ set( _local_LatticeFX "C:/Projects/deps/inst/latticefx" )
 set( _local_OSG "C:/Projects/deps/inst/osg-285" )
 set( _local_OSG_317 "C:/Projects/deps/inst/osg-317" )
 set( _local_OSGGL3 "C:/Projects/deps/inst/osg-331-gl3" )
+set( _local_OSGGL3_s "C:/Projects/deps/inst/osg-331-gl3-s" )
 set( _local_OSG_3rdParty "C:/Projects/deps/inst/3rdParty" )
 
 set( _local_osgAudio "C:/Projects/deps/inst/osgaudio" )
