@@ -40,6 +40,8 @@ set( _local_Freeglut "C:/Projects/deps/inst/freeglut" )
 
 set( _local_GDAL "C:/Projects/deps/inst/gdal" )
 
+set( _local_gif "I:/3rdParty" )
+
 set( _local_GGT "C:/Projects/deps/inst/ggt" )
 
 set( _local_GL )
@@ -47,6 +49,8 @@ set( _local_GL )
 set( _local_GL3 "C:/Projects/deps/inst" )
 
 set( _local_JAG "C:/Projects/deps/inst/jag3d" )
+
+set( _local_jpeg "I://3rdParty" )
 
 set( _local_LatticeFX "C:/Projects/deps/inst/latticefx" )
 
@@ -77,6 +81,8 @@ set( _local_Qt4 )
 set( _local_StoryTeller "C:/Projects/deps/inst/storyteller" )
 
 set( _local_SwitchWire "C:/Projects/deps/inst/switchwire" )
+
+set( _local_tiff "C:/Projects/deps/inst/3rdParty" )
 
 set( _local_VRPN )
 
