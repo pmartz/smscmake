@@ -85,6 +85,12 @@ if( _local_Freeglut )
     set( FREEGLUT_STATIC ON CACHE BOOL "" )
 endif()
 
+# GIF
+if( _local_gif )
+    set( GIF_INCLUDE_DIR "${_local_gif}/include" CACHE PATH "" )
+    set( GIF_LIBRARY "${_local_gif}/lib/giflib.lib" CACHE PATH "" )
+endif()
+
 # GGT
 if( _local_GGT )
     set( GMTL_ROOT_DIR "${_local_GGT}" CACHE PATH "" )
@@ -104,6 +110,12 @@ endif()
 # Jag3d
 if( USE_GL3 AND _local_JAG )
     set( jag3d_DIR "${_local_JAG}/lib" CACHE PATH "" )
+endif()
+
+# JPEG
+if( _local_jpeg )
+    set( JPEG_INCLUDE_DIR "${_local_jpeg}/include" CACHE PATH "" )
+    set( JPEG_LIBRARY "${_local_jpeg}/lib/libjpeg.lib" CACHE PATH "" )
 endif()
 
 # LatticeFX
@@ -196,6 +208,12 @@ endif()
 # SwitchWire
 if( _local_SwitchWire )
     set( switchwire_DIR "${_local_SwitchWire}/lib" CACHE PATH "" )
+endif()
+
+# TIFF
+if( _local_tiff )
+    set( TIFF_INCLUDE_DIR "${_local_tiff}/include" CACHE PATH "" )
+    set( TIFF_LIBRARY "${_local_tiff}/lib/libtiff.lib" CACHE PATH "" )
 endif()
 
 # VTK
