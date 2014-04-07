@@ -96,11 +96,10 @@ rem end of optloop
 call :checkerrors
 
 
-set _cmdline=%_cmdline% -C"%SMSCMAKE_DIR%\%_preloadCache%"
-
 set _cmdline=%_cmdline% -G%_generator%
 set _cmdline=%_cmdline% -DBUILD_SHARED_LIBS:BOOL=%_shared%
 
+set _cmdline=%_cmdline% -C"%SMSCMAKE_DIR%\%_preloadCache%"
 
 
 :issuecmd
