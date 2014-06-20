@@ -85,6 +85,13 @@ rem
     goto :optloop
   )
 
+  rem  **  Select OSG trunk build for OpenGL FFP.
+  if "%1"=="/osgtrunk" (
+    set _cmdline=%_cmdline% -DUSE_OSG_TRUNK:BOOL=ON
+    shift
+    goto :optloop
+  )
+
   rem  **  Build static libs instead of shared.
   if "%1"=="/s" (
     set _shared=OFF
